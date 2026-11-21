@@ -90,21 +90,23 @@ a{color:inherit;text-decoration:none}
 .hero p.lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:46ch}
 .hero p.lead b{color:var(--ink);font-weight:600}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.sticker-stage{position:relative;width:min(310px,100%);margin:0 auto;justify-self:center}
+.sticker-stage{position:relative;width:min(340px,100%);margin:0 auto;justify-self:center}
 .portrait{position:relative;aspect-ratio:4/5;border-radius:30px;overflow:hidden;border:3px solid #1A1530;transform:rotate(2.5deg);
   box-shadow:12px 14px 0 var(--violet), 0 30px 60px -20px rgba(54,30,120,.45);background:linear-gradient(135deg,var(--pink),var(--violet))}
 .portrait img{width:100%;height:100%;object-fit:cover}
-.sticker-stage .sticker{position:absolute;z-index:2;white-space:nowrap}
+.sticker-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 10px;margin-top:34px}
+.sticker-row .sticker{white-space:nowrap;padding:9px 14px;font-size:14px;border-radius:14px}
+.sticker-row .sticker big{font-size:22px}
 .sticker{position:relative;padding:12px 18px;border-radius:18px;font-weight:700;font-size:16px;box-shadow:var(--shadow);border:2px solid #1A1530;color:#1A1530;cursor:grab;user-select:none;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
 .sticker:hover{transform:rotate(0) scale(1.08)!important}
 .sticker small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
 .sticker big{display:block;font-size:34px;line-height:1;letter-spacing:-.03em}
-.s1{background:var(--orange);transform:rotate(-6deg);top:-22px;left:-58px}
-.s2{background:var(--pink);color:#fff;border-color:#1A1530;transform:rotate(5deg);top:44px;right:-72px}
+.s1{background:var(--orange);transform:rotate(-3deg)}
+.s2{background:var(--pink);color:#fff;border-color:#1A1530;transform:rotate(2deg)}
 .s2 small{opacity:.9}
-.s3{background:var(--sky);transform:rotate(-3deg);top:54%;left:-88px}
-.s4{background:var(--yellow);transform:rotate(4deg);bottom:78px;right:-62px}
-.s5{background:var(--card);color:var(--ink);border-color:var(--ink);transform:rotate(-2deg);bottom:-26px;left:-20px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px}
+.s3{background:var(--sky);transform:rotate(-1.5deg)}
+.s4{background:var(--yellow);transform:rotate(2deg)}
+.s5{background:var(--card);color:var(--ink);border-color:var(--ink);transform:rotate(-1deg);font-family:var(--serif);font-style:italic;font-weight:400;font-size:18px!important}
 
 /* ---------- Marquee ---------- */
 .marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding:20px 0;transform:rotate(-1.5deg);margin:40px -20px 0;border-block:3px solid var(--violet)}
@@ -257,8 +259,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .hero{padding-top:120px}
   .sticker{font-size:14px;padding:10px 14px}
   .sticker big{font-size:28px}
-  .sticker-stage{width:min(240px,64vw);margin-top:48px;margin-bottom:30px}
-  .s1{left:-40px;top:-26px}.s2{right:-40px;top:30px}.s3{left:-44px}.s4{right:-38px;bottom:64px}.s5{left:-14px;bottom:-30px;font-size:17px}
+  .sticker-stage{width:100%;margin-top:44px}
+  .portrait{width:min(270px,74vw);margin:0 auto}
   .bento{grid-template-columns:1fr}
   .tile{grid-column:span 1!important}
   .proj-copy{padding:30px 24px}
@@ -311,11 +313,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="sticker-stage">
         <div class="portrait"><img src="assets/vrinda.jpg" alt="Vrinda Goyal smiling, with the Danube and Budapest behind her" width="464" height="580"></div>
-        <div aria-hidden="true" class="sticker s1"><small>experience</small><big>5.5 yrs</big></div>
-        <div aria-hidden="true" class="sticker s2"><small>shipped at</small>Big Tech ✦</div>
-        <div aria-hidden="true" class="sticker s3">System Design nerd ⚙︎</div>
-        <div aria-hidden="true" class="sticker s4">AI tinkerer 🤖</div>
-        <div aria-hidden="true" class="sticker s5">full stack, full heart</div>
       </div>
     </div>
   </div>
@@ -597,16 +594,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   els.forEach((e,i)=>{e.style.transitionDelay=(i%4)*70+'ms';io.observe(e);});
 })();
 
-// Draggable stickers
-(function(){
-  document.querySelectorAll('.sticker').forEach(s=>{
-    let sx,sy,ox=0,oy=0,drag=false;
-    const base=getComputedStyle(s).transform;
-    s.addEventListener('pointerdown',e=>{drag=true;sx=e.clientX-ox;sy=e.clientY-oy;s.setPointerCapture(e.pointerId);s.style.cursor='grabbing';s.style.zIndex=5;s.style.transition='none'});
-    s.addEventListener('pointermove',e=>{if(!drag)return;ox=e.clientX-sx;oy=e.clientY-sy;s.style.translate=ox+'px '+oy+'px'});
-    s.addEventListener('pointerup',()=>{drag=false;s.style.cursor='grab';s.style.transition=''});
-  });
-})();
 </script>
 </body>
 </html>
