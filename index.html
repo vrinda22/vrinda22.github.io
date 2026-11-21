@@ -65,7 +65,7 @@ a{color:inherit;text-decoration:none}
 .btn svg{width:18px;height:18px}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;padding:130px 0 70px;overflow:hidden}
+.hero{position:relative;padding:120px 0 60px;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;z-index:0;animation:float 14s ease-in-out infinite}
 .b1{width:520px;height:520px;background:var(--violet);top:-160px;right:-120px}
 .b2{width:420px;height:420px;background:var(--pink);top:220px;right:260px;animation-delay:-4s;opacity:.55}
@@ -78,7 +78,7 @@ a{color:inherit;text-decoration:none}
 .avail{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);font-size:14.5px;font-weight:500}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(61,220,151,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(61,220,151,0)}100%{box-shadow:0 0 0 0 rgba(61,220,151,0)}}
-.hero h1{font-size:clamp(44px, 7vw, 104px);line-height:.96;letter-spacing:-.045em;font-weight:800;margin:0 0 26px;max-width:15.5ch}
+.hero h1{font-size:clamp(44px, 6vw, 88px);line-height:.96;letter-spacing:-.045em;font-weight:800;margin:0 0 26px}
 .hero h1 .serif{font-size:1.08em;letter-spacing:-.02em;font-weight:400}
 .hl{position:relative;display:inline-block;white-space:nowrap}
 .hl-v{color:var(--violet)}
@@ -86,21 +86,25 @@ a{color:inherit;text-decoration:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hl-v{color:#B9A8FF}}
 .hl-p{background:linear-gradient(100deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
 .underline{position:absolute;left:0;right:0;bottom:-.06em;height:.2em;z-index:-1}
-.hero-row{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end}
+.hero-row{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
 .hero p.lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:46ch}
 .hero p.lead b{color:var(--ink);font-weight:600}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.sticker-stage{display:flex;flex-wrap:wrap;align-items:center;align-content:flex-end;justify-content:flex-end;gap:18px 14px;padding-bottom:6px}
+.sticker-stage{position:relative;width:min(310px,100%);margin:0 auto;justify-self:center}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:30px;overflow:hidden;border:3px solid #1A1530;transform:rotate(2.5deg);
+  box-shadow:12px 14px 0 var(--violet), 0 30px 60px -20px rgba(54,30,120,.45);background:linear-gradient(135deg,var(--pink),var(--violet))}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.sticker-stage .sticker{position:absolute;z-index:2;white-space:nowrap}
 .sticker{position:relative;padding:12px 18px;border-radius:18px;font-weight:700;font-size:16px;box-shadow:var(--shadow);border:2px solid #1A1530;color:#1A1530;cursor:grab;user-select:none;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
 .sticker:hover{transform:rotate(0) scale(1.08)!important}
 .sticker small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
 .sticker big{display:block;font-size:34px;line-height:1;letter-spacing:-.03em}
-.s1{background:var(--orange);transform:rotate(-3deg)}
-.s2{background:var(--pink);color:#fff;border-color:#1A1530;transform:rotate(2.5deg)}
+.s1{background:var(--orange);transform:rotate(-6deg);top:-22px;left:-58px}
+.s2{background:var(--pink);color:#fff;border-color:#1A1530;transform:rotate(5deg);top:44px;right:-72px}
 .s2 small{opacity:.9}
-.s3{background:var(--sky);transform:rotate(-1.5deg)}
-.s4{background:var(--yellow);transform:rotate(2deg)}
-.s5{background:var(--card);color:var(--ink);border-color:var(--ink);transform:rotate(-2deg);font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px}
+.s3{background:var(--sky);transform:rotate(-3deg);top:54%;left:-88px}
+.s4{background:var(--yellow);transform:rotate(4deg);bottom:78px;right:-62px}
+.s5{background:var(--card);color:var(--ink);border-color:var(--ink);transform:rotate(-2deg);bottom:-26px;left:-20px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px}
 
 /* ---------- Marquee ---------- */
 .marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding:20px 0;transform:rotate(-1.5deg);margin:40px -20px 0;border-block:3px solid var(--violet)}
@@ -234,7 +238,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* ---------- Responsive ---------- */
 @media (max-width:1000px){
   .hero-row{grid-template-columns:1fr}
-  .sticker-stage{max-width:560px;justify-content:flex-start}
+  .sticker-stage{margin-top:40px}
   .bento{grid-template-columns:repeat(2,1fr)}
   .t-intro,.t-sys,.t-ai{grid-column:span 2}
   .t-years,.t-bigtech,.t-read,.t-tv{grid-column:span 1}
@@ -253,6 +257,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .hero{padding-top:120px}
   .sticker{font-size:14px;padding:10px 14px}
   .sticker big{font-size:28px}
+  .sticker-stage{width:min(240px,64vw);margin-top:48px;margin-bottom:30px}
+  .s1{left:-40px;top:-26px}.s2{right:-40px;top:30px}.s3{left:-44px}.s4{right:-38px;bottom:64px}.s5{left:-14px;bottom:-30px;font-size:17px}
   .bento{grid-template-columns:1fr}
   .tile{grid-column:span 1!important}
   .proj-copy{padding:30px 24px}
@@ -293,9 +299,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
   <div class="grain"></div>
   <div class="wrap">
-    <h1>I build <span class="hl hl-v">systems</span> that scale & <span class="serif hl-p">little AI things</span> that spark joy.</h1>
     <div class="hero-row">
       <div>
+      <h1>I build <span class="hl hl-v">systems</span> that scale & <span class="serif hl-p">little AI things</span> that spark joy.</h1>
         <p class="lead">Hi, I'm <b>Vrinda Goyal</b>, a full-stack developer with <b>5.5 years at Big Tech companies</b>. I design, build and scale products end to end, from the database schema to the last pixel. Now I'm helping founders and teams ship theirs.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-violet">Start a project
@@ -303,12 +309,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <a href="#work" class="btn btn-ghost">See my work</a>
         </div>
       </div>
-      <div class="sticker-stage" aria-hidden="true">
-        <div class="sticker s1"><small>experience</small><big>5.5 yrs</big></div>
-        <div class="sticker s2"><small>shipped at</small>Big Tech ✦</div>
-        <div class="sticker s3">System Design nerd ⚙︎</div>
-        <div class="sticker s4">AI tinkerer 🤖</div>
-        <div class="sticker s5">full stack, full heart</div>
+      <div class="sticker-stage">
+        <div class="portrait"><img src="assets/vrinda.jpg" alt="Vrinda Goyal smiling, with the Danube and Budapest behind her" width="464" height="580"></div>
+        <div aria-hidden="true" class="sticker s1"><small>experience</small><big>5.5 yrs</big></div>
+        <div aria-hidden="true" class="sticker s2"><small>shipped at</small>Big Tech ✦</div>
+        <div aria-hidden="true" class="sticker s3">System Design nerd ⚙︎</div>
+        <div aria-hidden="true" class="sticker s4">AI tinkerer 🤖</div>
+        <div aria-hidden="true" class="sticker s5">full stack, full heart</div>
       </div>
     </div>
   </div>
